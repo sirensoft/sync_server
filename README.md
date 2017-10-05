@@ -8,6 +8,6 @@
 <ol>
 <li>git clone https://github.com/sirensoft/sync_server.git</li>
 <li>cd sync_server && npm install</li>
-</li>แก้ไข config/connect-db.json </li>
+<li>แก้ไข config/connect-db.json </li>
 <li>npm start</li>
 </ol>
