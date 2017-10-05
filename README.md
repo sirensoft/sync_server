@@ -1,7 +1,7 @@
 <h3>การเตรียมระบบ</h3>
 <ol>
 <li>สร้าง mysql database ชื่อ sync</li>
-<li>นำเข้าไฟล์ sync.sql</li>
+<li>นำเข้าไฟล์ config/sync.sql</li>
 </ol>
 
 <h3>การติดตั้ง</h3>
