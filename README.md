@@ -22,3 +22,6 @@
 
 <h3>D) ตัวอย่าง client</h3>
 https://github.com/sirensoft/dhdc3/tree/master/modules/sync
+
+<h3>F) หมายเหตุ</h3>
+เปิด selnux 
