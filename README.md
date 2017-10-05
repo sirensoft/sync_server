@@ -11,3 +11,6 @@
 <li>แก้ไข config/connect-db.json </li>
 <li>npm start</li>
 </ol>
+
+<h3>ตัวอย่าง client</h3>
+https://github.com/sirensoft/dhdc3/tree/master/modules/sync
