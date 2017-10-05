@@ -43,3 +43,11 @@ INSERT INTO `command` VALUES ('psyco-1', 'จังหวัดดึงข้�
 INSERT INTO `command` VALUES ('qc-1', 'ประชากร TYPE 1,3 มีการบันทึกที่อยู่', 'homeless', 'SELECT t.hospcode,t.b,t.a,ROUND((t.a*100/t.b),2) rate from (\r\nSELECT t.HOSPCODE hospcode\r\n,COUNT(t.HOSPCODE) b \r\n,COUNT(if(h.HID IS NOT NULL,1,NULL)) a\r\nfrom t_person_cid  t\r\nLEFT JOIN home h ON t.HOSPCODE = h.HOSPCODE AND t.HID = h.HID\r\nWHERE t.TYPEAREA in (1,3) AND t.DISCHARGE = 9\r\nGROUP BY t.HOSPCODE\r\n) t', '1', '1', 'on', '2017-08-31 14:03:47', 'ตรวจสอบคุณภาพ');
 INSERT INTO `command` VALUES ('qc-2', 'ประชากรTYPE1,3 มีอายุติดลบ', 'age_err', 'SELECT t.hospcode,t.b,t.a,ROUND(t.a*100/t.b,2) rate from (\r\nSELECT t.HOSPCODE hospcode\r\n,COUNT(t.HOSPCODE) b\r\n,COUNT(if(date(t.birth) > CURDATE(),1,NULL)) a \r\nFROM t_person_cid t\r\nWHERE t.TYPEAREA in (1,3) AND t.DISCHARGE = 9\r\nGROUP BY t.HOSPCODE\r\n) t', '1', '1', 'on', '2017-09-01 15:40:14', 'ตรวจสอบคุณภาพ');
 INSERT INTO `command` VALUES ('qof-1', 'ฝากครรภ์ครั้งแรก 12 สัปดาห์', 'qof_anc12', 'select 	q.hospcode\r\n	,count(DISTINCT concat(q.pid, q.hospcode)) b\r\n	,count(if(q.DATE_SERV BETWEEN \'2017-04-01\' and \'2018-03-31\' and q.ANCNO = 1 and q.GA <= 12,1,null)) a\r\n  ,round((count(if(q.DATE_SERV BETWEEN \'2017-04-01\' and \'2018-03-31\' and q.ANCNO = 1 and q.GA <= 12,1,null))/\r\ncount(DISTINCT concat(q.pid, q.hospcode)))*100,2) rate\r\nfrom nhso_tmpqof003_anc q\r\ngroup by q.HOSPCODE', '1', '1', 'on', '2017-08-31 16:56:08', 'QOF-2561');
+
+CREATE TABLE `qof_anc12` (
+  `hospcode` varchar(5) NOT NULL,
+  `b` int(11) DEFAULT NULL,
+  `a` int(11) DEFAULT NULL,
+  `rate` double(11,2) DEFAULT NULL,
+  PRIMARY KEY (`hospcode`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

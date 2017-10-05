@@ -15,7 +15,9 @@
 
 <h3>C) routing</h3>
 <ol>
-<li>/api/sql = แสดงรายการคำสั่งจาก server  [<a href='http://61.19.22.108:3001/api/sql' target='_blank'>demo</a>]</li>
+<li>GET  /api/ = ทดสอบ</li>
+<li>GET  /api/sql = แสดงรายการคำสั่งจาก server  [<a href='http://61.19.22.108:3001/api/sql' target='_blank'>demo</a>]</li>
+<li>POST /api/send/ชื่อตาราง(เช่น qof_anc12)</li>
 </ol>
 
 <h3>D) ตัวอย่าง client</h3>
