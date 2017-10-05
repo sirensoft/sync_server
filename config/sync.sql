@@ -51,3 +51,25 @@ CREATE TABLE `qof_anc12` (
   `rate` double(11,2) DEFAULT NULL,
   PRIMARY KEY (`hospcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `cserver`;
+CREATE TABLE `cserver` (
+  `id` varchar(255) NOT NULL,
+  `amp` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `skip` enum('1','0') DEFAULT NULL,
+  `last_sync` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cserver
+-- ----------------------------
+INSERT INTO `cserver` VALUES ('01', 'เมือง', 'http://xx.xx.22.108/dhdc3/frontend/web/sync/default/sync-all', '0', '2017-10-05 22:00:08');
+INSERT INTO `cserver` VALUES ('02', 'นครไทย', 'http://xx.xx.112.28/dhdc3/frontend/web/sync/default/sync-all', '0', '2017-10-05 22:00:14');
+INSERT INTO `cserver` VALUES ('03', 'ชาติตระการ', 'http://xx.xx.112.38/dhdc3/frontend/web/sync/default/sync-all', '1', null);
+INSERT INTO `cserver` VALUES ('04', 'บางระกำ', 'http://xx.xx.22.195/dhdc3/frontend/web/sync/default/sync-all', '0', '2017-10-05 22:00:18');
+INSERT INTO `cserver` VALUES ('05', 'บางกระทุ่ม', 'http://xx.xx.22.203/dhdc3/frontend/web/sync/default/sync-all', '0', '2017-10-05 22:00:20');
+INSERT INTO `cserver` VALUES ('06', 'พรหมพิราม', 'http://xx.xx.22.158/dhdc3/frontend/web/sync/default/sync-all', '0', '2017-10-05 22:00:23');
+INSERT INTO `cserver` VALUES ('08', 'วังทอง', 'http://xx.xx.112.21/dhdc3/frontend/web/sync/default/sync-all', '1', null);
+INSERT INTO `cserver` VALUES ('09', 'เนินมะปราง', 'http://xx.xx.22.165/dhdc3/frontend/web/sync/default/sync-all', '0', '2017-10-05 22:00:30');
